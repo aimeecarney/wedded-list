@@ -1,0 +1,2 @@
+class ListContactsController < ApplicationController
+end
