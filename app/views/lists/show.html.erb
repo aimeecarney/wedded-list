@@ -2,5 +2,7 @@
 <%= @list.description %>
 
 <% @list.contacts.each do |contact| %>
-<%= contact.name %>
+<%= contact.name %><br>
 <% end %>
+<br>
+<%= link_to "Add Contact to List", new_contact_url %>
