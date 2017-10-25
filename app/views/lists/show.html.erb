@@ -1,1 +1,6 @@
-<%= @list.name %>
+<h1><%= @list.name %></h1>
+<%= @list.description %>
+
+<% @list.contacts.each do |contact| %>
+<%= contact.name %>
+<% end %>

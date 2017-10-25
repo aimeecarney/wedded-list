@@ -9,6 +9,7 @@
   </head>
 
   <body>
+    Wedded List | <%=link_to "Lists", lists_url%> | <%= link_to "Contacts", contacts_url %> | <%= link_to('Logout', destroy_user_session_path, method: :delete) %> <br><br>
     <%= yield %>
   </body>
 </html>
