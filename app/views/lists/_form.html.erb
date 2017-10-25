@@ -1,7 +1,9 @@
-<label>List Name:</label><br>
- <%= text_field_tag :name %><br>
- 
- <label>Post Description</label><br>
- <%= text_area_tag :description %><br>
- 
- <%= submit_tag "Submit List" %>
+<h1>Create a new List:</h1>
+
+<%= form_for(@list) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br>
+  <%= f.label :description %>
+  <%= f.text_field :description %><br>
+  <%= f.submit %>
+<% end %>
