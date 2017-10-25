@@ -11,7 +11,7 @@ class ListsController < ApplicationController
     @list = List.new(list_params)
     @list.user_id = current_user.id if current_user
     @list.save
-    redirect_to '/lists/show'
+    redirect_to '/lists/:id'
   end
 
   def show
