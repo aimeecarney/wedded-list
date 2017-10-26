@@ -1,4 +1,5 @@
 class ContactsController < ApplicationController
+  before_action :current_user
 
     def new
       @contact = Contact.new
@@ -9,8 +10,8 @@ class ContactsController < ApplicationController
     end
 
     def create
-      @contact = current_user.contacts.create(contact_params)
-      redirect_to '/contacts/index'
+      @contact = Contact.create(contact_params)
+      redirect_to contacts_path(@contact)
     end
 
     def show

@@ -1,6 +1,6 @@
 <h2>Your Contact List:</h2>
 <% @contacts.each do |c| %>
 <ui><strong><%=c.name%></strong><br>
-    <%= link_to "View Contact", contact_url(c) %> | <%= link_to "Delete Contact", contact_url(c), :method => "delete", :confirm => "Are you sure?" %><br><br></ui>
+    <%= link_to "View Contact", contact_url(c) %> | <%= link_to "Delete Contact", contact_url(c), :method => "delete"%><br><br></ui>
   <% end %>
 <%= link_to "Create New Contact", new_contact_url %>

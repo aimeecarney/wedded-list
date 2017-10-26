@@ -11,5 +11,10 @@
   <%= f.text_field :email %><br>
   <%= f.label :plus_one_name %>
   <%= f.text_field :plus_one_name %><br>
+  <%= f.label :Events_Invited_To %><br>
+  <%= f.collection_check_boxes :list_ids, List.all, :id, :name %>
+   <%= f.fields_for :lists, @contact.lists.build do |list_fields| %>
+   <%= list_fields.text_field :name %><br>
+   <% end %>
   <%= f.submit %>
 <% end %>
