@@ -1,0 +1,11 @@
+<h1><%= @contact.name %></h1>
+
+<p>Address: <%= @contact.address %></p>
+<p>Phone Number: <%= @contact.phone_number %></p>
+<p>Email: <%= @contact.email %></p>
+<p>Guest Name: <%= @contact.plus_one_name %></p>
+
+Invited to:
+<% @contact.lists.each do |list| %>
+<li><%= link_to list.name, list_path(list) %></li>
+<% end %>

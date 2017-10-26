@@ -1,14 +1,7 @@
-<h1>Create a new List:</h1>
-
 <%= form_for(@list) do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %><br>
   <%= f.label :description %>
   <%= f.text_field :description %><br>
-  <%= f.label "Select or Add Contact" %>
-  <%= f.collection_check_boxes :contact_ids, Contact.all, :id, :name %><br>
-  <%= f.fields_for :contacts, @list.contacts.build do |contacts_fields| %><br>
-  <%= contacts_fields.text_field :name %><br>
-  <% end %>
   <%= f.submit %>
 <% end %>

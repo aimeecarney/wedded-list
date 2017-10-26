@@ -9,8 +9,7 @@ class ContactsController < ApplicationController
     end
 
     def create
-      @contact = Contact.new(contact_params)
-      @contact.save
+      @contact = current_user.contacts.create(contact_params)
       redirect_to '/contacts/index'
     end
 

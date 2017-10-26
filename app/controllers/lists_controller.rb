@@ -1,17 +1,17 @@
 class ListsController < ApplicationController
+  before_action :current_user
+
   def new
     @list = List.new
   end
 
   def index
-    @lists = List.all
+    @lists = current_user.lists
   end
 
   def create
-    @list = List.new(list_params)
-    @list.user_id = current_user.id if current_user
-    @list.save
-    redirect_to '/lists/:id'
+    @list = current_user.lists.create(list_params)
+    redirect_to lists_path(@list)
   end
 
   def show
