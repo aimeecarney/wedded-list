@@ -6,13 +6,18 @@ class ContactsController < ApplicationController
     end
 
     def index
-      @contacts = current_user.contacts
+      @contacts = List.contacts.all
     end
 
     def create
-      @contact = Contact.create(contact_params)
-      redirect_to contacts_path(@contact)
+      @contact = List.contact.new(contact_params)
+      if @contact.save
+        redirect_to contacts_path(@contact)
+      else
+        redirect_to new_contacts_path
+      end
     end
+
 
     def show
       @contact = Contact.find(params[:id])
@@ -37,7 +42,7 @@ class ContactsController < ApplicationController
     private
 
     def contact_params
-      params.require(:contact).permit(:name, :address, :phone_number, :email, :plus_one_name)
+      params.require(:contact).permit(:name, :street, :city, :state, :email, :plus_one_name)
     end
 
 end

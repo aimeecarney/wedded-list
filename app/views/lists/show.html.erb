@@ -1,5 +1,8 @@
 <h1><%= @list.name %></h1>
 <%= @list.description %>
+<%= @list.date %>
+<%= @list.city %>
+<%= @list.state %>
 
 <% @list.contacts.each do |contact| %>
 <%= contact.name %><br>

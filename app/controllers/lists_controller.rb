@@ -1,5 +1,6 @@
 class ListsController < ApplicationController
   before_action :current_user
+  before_action :set_list, only: [:show, :edit, :update, :destroy]
 
   def new
     @list = List.new
@@ -10,33 +11,38 @@ class ListsController < ApplicationController
   end
 
   def create
-    @list = current_user.lists.create(list_params)
+    @list = current_user.lists.new(list_params)
+    if @list.save
     redirect_to lists_path(@list)
+    else
+      redirect_to new_list_path
+    end
   end
 
   def show
-    @list = List.find(params[:id])
   end
 
-  # def update
-  #   @list = List.find(params[:id])
-  #   @list.update(list_params)
-  #   redirect_to lists_path(@list)
-  # end
+  def update
+    @list.update(list_params)
+    redirect_to list_path(@list)
+  end
 
   def edit
-    @list = List.find(params[:id])
   end
 
   def destroy
-    @list = List.find(params[:id])
     @list.destroy
     redirect_to lists_path(@list)
   end
 
   private
 
-  def list_params
-    params.require(:list).permit(:name, :description)
+  def set_list
+    @list = List.find(params[:id])
   end
+
+  def list_params
+    params.require(:list).permit(:name, :date, :street, :city, :state, :description)
+  end
+
 end

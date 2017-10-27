@@ -1,15 +1,16 @@
-<h1>Create a new Contact:</h1>
-
 <%= form_for(@contact) do |f| %>
-  <%= f.label :name %>
+  <%= f.label :name %>:
   <%= f.text_field :name %><br>
-  <%= f.label :address %>
-  <%= f.text_field :address %><br>
-  <%= f.label :phone_number %>
-  <%= f.text_field :phone_number %><br>
-  <%= f.label :email %>
+  Address: <br>
+  <%= f.label :street %>:
+  <%= f.text_field :street %><br>
+  <%= f.label :city %>:
+  <%= f.text_field :city %><br>
+  <%= f.label :state %> (abbreviation):
+  <%= f.text_field :state %><br>
+  <%= f.label :email %>:
   <%= f.text_field :email %><br>
-  <%= f.label :plus_one_name %>
+  <%= f.label :plus_one_name %>:
   <%= f.text_field :plus_one_name %><br>
   <%= f.label :Events_Invited_To %><br>
   <%= f.collection_check_boxes :list_ids, current_user.lists.all, :id, :name %>
