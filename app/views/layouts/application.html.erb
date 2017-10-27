@@ -8,9 +8,10 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    Wedded List | <%=link_to "Lists", lists_url%> | <%= link_to "Contacts", contacts_url %> | <% if user_signed_in? %> <%= link_to('Logout', destroy_user_session_path, method: :delete) %> <% else %>
-  <%= link_to('Login', new_user_session_path)  %> <% end %> <br><br>
-    <%= yield %>
+  <body> <%= render 'layouts/header' %>
+    <div class="container">
+      <%= render 'layouts/messages' %>
+      <%= yield %>
+    </div>
   </body>
 </html>
