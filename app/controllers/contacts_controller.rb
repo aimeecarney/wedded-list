@@ -1,12 +1,12 @@
 class ContactsController < ApplicationController
   before_action :current_user
-  
+
     def new
       @contact = Contact.new
     end
 
     def index
-      @contacts = Contact.all
+      @contacts = current_user.contacts
     end
 
     def create
