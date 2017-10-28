@@ -1,0 +1,6 @@
+<%= form_for(@list) do |f| %>
+  <%= f.collection_check_boxes :contact_ids, @contacts, :id, :name %>
+   <%= f.fields_for :contacts, @contacts.all do |contact| %><br>
+   <% end %>
+  <%= f.submit %>
+<% end %>

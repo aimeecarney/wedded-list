@@ -1,6 +1,6 @@
 class ListsController < ApplicationController
   before_action :current_user
-  before_action :set_list, only: [:show, :edit, :update, :destroy]
+  before_action :set_list, only: [:show, :edit, :update, :destroy, :add_contact]
 
   def new
     @list = List.new
@@ -27,6 +27,10 @@ class ListsController < ApplicationController
     redirect_to list_path(@list)
   end
 
+  def add_contact
+    @contacts = Contact.where(user_id: current_user.id)
+  end
+
   def edit
   end
 
@@ -42,7 +46,7 @@ class ListsController < ApplicationController
   end
 
   def list_params
-    params.require(:list).permit(:name, :date, :street, :city, :state, :description)
+    params.require(:list).permit(:name, :date, :street, :city, :state, :description, :contact_id)
   end
 
 end

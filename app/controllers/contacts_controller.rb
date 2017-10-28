@@ -13,10 +13,11 @@ class ContactsController < ApplicationController
       @contact = Contact.new(contact_params)
       @contact.user_id = current_user.id
       if @contact.save
+        binding.pry
         redirect_to contacts_path(@contact)
       else
-        flash[:notice] = "Sorry, something went wrong."
-        redirect_to new_contacts_path
+        flash[:notice] = "Sorry, all fields must be filled out."
+        redirect_to new_contact_path
       end
     end
 
@@ -44,7 +45,7 @@ class ContactsController < ApplicationController
     private
 
     def contact_params
-      params.require(:contact).permit(:name, :street, :city, :state, :email, :plus_one_name)
+      params.require(:contact).permit(:name, :street, :city, :state, :email, :plus_one_name, :list_id)
     end
 
 end
