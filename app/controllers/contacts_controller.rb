@@ -6,14 +6,16 @@ class ContactsController < ApplicationController
     end
 
     def index
-      @contacts = List.contacts.all
+      @contacts = Contact.where(user_id: current_user.id)
     end
 
     def create
-      @contact = List.contact.new(contact_params)
+      @contact = Contact.new(contact_params)
+      @contact.user_id = current_user.id
       if @contact.save
         redirect_to contacts_path(@contact)
       else
+        flash[:notice] = "Sorry, something went wrong."
         redirect_to new_contacts_path
       end
     end

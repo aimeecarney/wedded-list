@@ -1,6 +1,10 @@
 <h1><%= @contact.name %></h1>
 
-<p>Address: <%= @contact.address %></p>
+<p>Address:
+<%= @contact.street %>
+<%= @contact.city %>
+<%= @contact.state %>
+</p>
 <p>Phone Number: <%= @contact.phone_number %></p>
 <p>Email: <%= @contact.email %></p>
 <p>Guest Name: <%= @contact.plus_one_name %></p>
