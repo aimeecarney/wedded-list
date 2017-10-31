@@ -12,9 +12,6 @@
   <%= f.text_field :email %><br>
   <%= f.label :plus_one_name %>:
   <%= f.text_field :plus_one_name %><br>
-  <%= f.label :Events_Invited_To %><br>
-  <%= f.collection_check_boxes :list_ids, current_user.lists.all, :id, :name %>
-   <%= f.fields_for :lists, current_user.lists.all do |list_fields| %><br>
-   <% end %>
+
   <%= f.submit %>
 <% end %>

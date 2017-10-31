@@ -1,11 +1,11 @@
 <h1><%= @list.name %></h1>
-<%= @list.description %>
-<%= @list.date %>
-<%= @list.city %>
-<%= @list.state %>
-
+<%= @list.description %><br>
+<%= @list.date %><br>
+<%= @list.city %>, <%= @list.state %><br>
+<br>
+<strong>Guest List:</strong><br>
 <% @list.contacts.each do |contact| %>
-<%= contact.name %><br>
+<li><%= link_to contact.name, contact_path(contact) %></li><br>
 <% end %>
 <br>
 <br>
