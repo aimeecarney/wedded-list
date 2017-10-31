@@ -1,15 +1,14 @@
 <h1><%= @contact.name %></h1>
 
-<p>Address:
-<%= @contact.street %>
-<%= @contact.city %>
-<%= @contact.state %>
+<strong><p>Address:<br></strong>
+<%= @contact.street %><br>
+<%= @contact.city %><br>
+<%= @contact.state %><br>
 </p>
-<p>Phone Number: <%= @contact.phone_number %></p>
-<p>Email: <%= @contact.email %></p>
-<p>Guest Name: <%= @contact.plus_one_name %></p>
+<strong><p>Email:</strong> <%= @contact.email %></p>
+<strong><p>Plus 1 Name (if applicable):</strong> <%= @contact.plus_one_name %></p>
 
-Invited to:
+<strong>Events Invited To:</strong>
 <% @contact.lists.each do |list| %>
 <li><%= link_to list.name, list_path(list) %></li>
 <% end %>

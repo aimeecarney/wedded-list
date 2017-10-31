@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
 
   get '/lists/:id/add_contact', to: 'lists#add_contact'
+  get '/lists/:id/local_contact', to: 'lists#local_contacts'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
     # root 'welcome#home'
     authenticated do

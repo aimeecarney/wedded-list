@@ -4,6 +4,6 @@
 <% @lists.each do |l| %>
 <ui><strong><%=l.name%></strong><br>
     <%=l.description%><br>
-    <%= link_to "View List", list_url(l) %> | <%= link_to "Delete List", list_url(l), :method => "delete", :confirm => "Are you sure?" %><br><br></ui>
+    <%= link_to "View List", list_url(l) %> | <%= link_to "Delete List", list_url(l), :method => "delete" %><br><br></ui>
   <% end %>
 <%= link_to "Create New List", new_list_url %>

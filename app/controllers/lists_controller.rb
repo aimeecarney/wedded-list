@@ -1,6 +1,6 @@
 class ListsController < ApplicationController
   before_action :current_user
-  before_action :set_list, only: [:show, :edit, :update, :destroy, :add_contact]
+  before_action :set_list, only: [:show, :edit, :update, :destroy, :add_contact, :local_contacts]
 
   def new
     @list = List.new
@@ -13,8 +13,10 @@ class ListsController < ApplicationController
   def create
     @list = current_user.lists.new(list_params)
     if @list.save
+    flash[:notice] = "List successfully created"
     redirect_to lists_path(@list)
     else
+      flash[:notice] = "Incorrect input, please try again (all fields required)."
       redirect_to new_list_path
     end
   end
@@ -29,6 +31,10 @@ class ListsController < ApplicationController
 
   def add_contact
     @contacts = Contact.where(user_id: current_user.id)
+  end
+
+  def local_contacts
+    @contacts = Contact.where(user_id: current_user.id, state: @list.state)
   end
 
   def edit
