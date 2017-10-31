@@ -4,10 +4,10 @@ class List < ApplicationRecord
   has_many :contacts, through: :list_contacts
   before_save :uppcase_field
 
-  validates_format_of :date, :with => /\d{2}\/\d{2}\/\d{4}/, :message => "Date must be in the following format: mm/dd/yyyy"
+  validates_format_of :date, :with => /\d{2}\/\d{2}\/\d{4}/
   validates :state, length: { maximum: 2 }
-  validates_presence_of :street, :city, :date, :name, :message => "^Required Fields"
-
+  validates_presence_of :street, :city, :date, :name
+  
   def uppcase_field
     self.state.upcase!
   end

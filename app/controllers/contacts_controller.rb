@@ -1,5 +1,6 @@
 class ContactsController < ApplicationController
   before_action :current_user
+  before_action :set_contact, only: [:show, :edit, :update, :destroy]
 
     def new
       @contact = Contact.new
@@ -16,33 +17,32 @@ class ContactsController < ApplicationController
         flash[:notice] = "Contact successfully created"
         redirect_to contacts_path(@contact)
       else
-        flash[:notice] = "Sorry, all fields must be filled out."
-        redirect_to new_contact_path
+        render :new
       end
     end
 
 
     def show
-      @contact = Contact.find(params[:id])
     end
 
     def update
-      @contact = Contact.find(params[:id])
       @contact.update(contact_params)
       redirect_to contacts_path(@contact)
     end
 
     def edit
-      @contact = Contact.find(params[:id])
     end
 
     def destroy
-      @contact = Contact.find(params[:id])
       @contact.destroy
       redirect_to contacts_path(@contact)
     end
 
     private
+
+    def set_contact
+      @contact = Contact.find(params[:id])
+    end
 
     def contact_params
       params.require(:contact).permit(:name, :street, :city, :state, :email, :plus_one_name, :list_id)

@@ -1,12 +1,20 @@
 <%= form_for(@list) do |f| %>
+  <% if @list.errors.any? %>
+      <div class="errors">
+        <h2><%= pluralize(@list.errors.count, "error") %> prohibited this list from being saved:</h2>
+        <ul>
+          <% @list.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
   <%= f.label :name %> of event:
   <%= f.text_field :name %><br>
   <%= f.label :description %>:
   <%= f.text_field :description %><br>
-  <div class="field_with_errors">
   <%= f.label :date %> of event (MM/DD/YYYY):
   <%= f.text_field :date %><br>
-</div>
   Address:<br>
   <%= f.label :street %>
   <%= f.text_field :street %><br>

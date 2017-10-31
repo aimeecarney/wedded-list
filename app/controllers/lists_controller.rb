@@ -12,13 +12,12 @@ class ListsController < ApplicationController
 
   def create
     @list = current_user.lists.new(list_params)
-    if @list.save
-    flash[:notice] = "List successfully created"
-    redirect_to lists_path(@list)
-    else
-      flash[:notice] = "Incorrect input, please try again (all fields required)."
-      redirect_to new_list_path
-    end
+      if @list.save
+        flash[:notice] = "List successfully created"
+        redirect_to lists_path(@list)
+      else
+        render :new
+      end
   end
 
   def show
