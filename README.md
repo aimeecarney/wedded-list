@@ -13,8 +13,8 @@ To use Wedded List:
 4. Run 'rails s' to start the local server.
 5. Open your browser to 'http://localhost:3000' to run the app.
 
-Contributing
+Contributing: 
 Bug reports are welcome through GitHub at: https://github.com/aimeecarney/wedded-list
 
-License
+License: 
 This project is licenced under the MIT Licence.
