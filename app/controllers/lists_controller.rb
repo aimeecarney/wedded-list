@@ -30,11 +30,11 @@ class ListsController < ApplicationController
 
   def add_contact
     @contacts = Contact.where(user_id: current_user.id)
-    @contact = Contact.new
+    @contact = @list.contacts.new
   end
 
   def local_contacts
-    @contacts = Contact.where(user_id: current_user.id, state: @list.state)
+    @contacts = @list.contacts.where(state: @list.state)
   end
 
   def edit
@@ -52,7 +52,7 @@ class ListsController < ApplicationController
   end
 
   def list_params
-    params.require(:list).permit(:name, :date, :street, :city, :state, :description, contact_ids:[])
+    params.require(:list).permit(:name, :date, :street, :city, :state, :description, contact_ids:[], contact_attributes:[])
   end
 
 end

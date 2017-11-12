@@ -1,9 +1,10 @@
-<h1>Add or Create Contact</h1>
+<h1>Add Contact:</h1>
 <%= form_for(@list) do |f| %>
   <%= f.collection_check_boxes :contact_ids, @contacts.all, :id, :name %>
-  <%= f.fields_for :contacts, @list.contacts.build do |contact| %><br>
-  <%= render 'contacts/form', f: contact %>
-  <% end %>
-
   <%= f.submit %>
+<% end %>
+
+<h1>Create Contact:</h1>
+<%= form_for(@list.contacts.build) do |f| %>
+  <%= render 'contacts/form' %>
 <% end %>
