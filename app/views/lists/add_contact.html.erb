@@ -2,9 +2,8 @@
 <%= form_for(@list) do |f| %>
   <%= f.collection_check_boxes :contact_ids, @contacts.all, :id, :name %>
   <%= f.submit %>
-<% end %>
-
+  <% end %>
 <h1>Create Contact:</h1>
-<%= form_for(@list.contacts.build) do |f| %>
-  <%= render 'contacts/form' %>
-<% end %>
+  <%= form_for(@list.contacts.build) do |f| %>
+    <%= render 'contacts/form' %>
+   <% end %>
