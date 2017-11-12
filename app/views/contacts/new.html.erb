@@ -1,3 +1,5 @@
-<%= form_tag contacts_path do %>
-<%= render "form" %>
+<h1>Create a new contact:</h1>
+<%= form_for(@contact) do |f| %>
+<%= render 'form'%>
+<%= f.submit %>
 <% end %>

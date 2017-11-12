@@ -30,6 +30,7 @@ class ListsController < ApplicationController
 
   def add_contact
     @contacts = Contact.where(user_id: current_user.id)
+    @contact = Contact.new
   end
 
   def local_contacts
