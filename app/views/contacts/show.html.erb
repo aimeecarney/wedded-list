@@ -8,10 +8,7 @@
 <strong><p>Email:</strong> <%= @contact.email %></p>
 <strong><p>Plus 1 Name (if applicable):</strong> <%= @contact.plus_one_name %></p>
 
-<strong>Events Invited To:</strong>
-<% @contact.lists.each do |list| %>
-<li><%= link_to list.name, list_path(list) %></li>
-<% end %>
+<%= render partial: 'events' %>
 <br>
 <strong>Gifts Given/Comments</strong>
 <% @comments.each do |comment| %>
