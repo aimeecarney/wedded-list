@@ -12,8 +12,10 @@ function attachListeners() {
 function loadEvents() {
   $.ajax({
     method: "GET",
-    url: this.href
-  }).done(function(response){
-    $("div.events").html(response)
+    url: "contacts/3"
+  }).done(function(data){
+    debugger
+    let events = $('data').find('.contactEvents')
+    $("div.events").html(events)
   })
 }
