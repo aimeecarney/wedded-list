@@ -21,10 +21,6 @@ class ContactsController < ApplicationController
       end
     end
 
-    def loadEvents
-      render :json
-    end
-
 
     def show
       @comments = @contact.comments.all

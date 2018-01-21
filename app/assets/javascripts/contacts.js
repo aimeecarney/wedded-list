@@ -10,7 +10,5 @@ function attachListeners() {
 }
 
 function loadEvents(id) {
-  contactId = id
-  let contact = $.get(`/contacts/${id}`, function () {
-    $('')
-  })
+  alert("success")
+}
