@@ -1,6 +1,6 @@
 class ListsController < ApplicationController
   before_action :current_user
-  before_action :set_list, only: [:show, :edit, :update, :destroy, :add_contact, :local_contacts]
+  before_action :set_list, only: [:show, :edit, :update, :destroy, :add_contact, :local_contacts, :add_new_contact]
 
   def new
     @list = List.new
@@ -30,7 +30,14 @@ class ListsController < ApplicationController
 
   def add_contact
     @contacts = Contact.where(user_id: current_user.id)
+  end
+
+  def add_new_contact
     @contact = @list.contacts.new
+    @contact.list_id = @list
+    if @contact.save
+      redirect_to list_path(@list)
+    end
   end
 
   def local_contacts
