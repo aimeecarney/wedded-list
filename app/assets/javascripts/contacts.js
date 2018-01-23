@@ -4,6 +4,7 @@ $(document).ready(function() {
 
 function attachListeners() {
   $('.events').on('click', function(e){
+    debugger
     e.preventDefault()
     loadEvents()
   })
@@ -12,7 +13,7 @@ function attachListeners() {
 function loadEvents() {
   $.ajax({
     method: "GET",
-    url: "contacts/3"
+    url: this.href
   }).done(function(data){
     debugger
     let events = $('data').find('.contactEvents')
