@@ -1,22 +1,6 @@
-$(document).ready(function() {
-    attachListeners()
-  })
-
-function attachListeners() {
+$(function(){
   $('.events').on('click', function(e){
-    debugger
+    alert("hello")
     e.preventDefault()
-    loadEvents()
   })
-}
-
-function loadEvents() {
-  $.ajax({
-    method: "GET",
-    url: this.href
-  }).done(function(data){
-    debugger
-    let events = $('data').find('.contactEvents')
-    $("div.events").html(events)
-  })
-}
+})

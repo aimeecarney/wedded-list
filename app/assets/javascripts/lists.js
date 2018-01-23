@@ -5,6 +5,7 @@ $(function(){
       url: this.href
     }).done(function(data){
       $("div.local_contacts_list").html(data)
+
     })
     e.preventDefault()
   })
