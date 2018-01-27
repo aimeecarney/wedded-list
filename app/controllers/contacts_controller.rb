@@ -1,6 +1,6 @@
 class ContactsController < ApplicationController
   before_action :current_user
-  before_action :set_contact, only: [:show, :edit, :update, :destroy]
+  before_action :set_contact, only: [:show, :edit, :update, :destroy, :events]
 
     def new
       @contact = Contact.new
@@ -31,6 +31,9 @@ class ContactsController < ApplicationController
     def update
       @contact.update(contact_params)
       redirect_to contacts_path(@contact)
+    end
+
+    def events
     end
 
     def edit
