@@ -34,6 +34,7 @@ class ContactsController < ApplicationController
     end
 
     def events
+      render :layout => false
     end
 
     def edit

@@ -1,5 +1,1 @@
-<div class="contactEvents"><strong>Events Invited To:</strong>
-<% @contact.lists.each do |list| %>
-<li><%= link_to list.name, list_path(list) %></li>
-<% end %>
-</div>
+<%= render partial: 'events' %>
