@@ -1,5 +1,6 @@
-$(function(){
+$(document).ready(function(){
   $('.load_events').on('click', function(e){
+    e.preventDefault()
     debugger
     $.ajax({
       method: "GET",
@@ -7,6 +8,7 @@ $(function(){
     }).done(function(data){
       $("div.events_list").html(data)
     })
-    e.preventDefault()
+
   })
-})
+}
+)
