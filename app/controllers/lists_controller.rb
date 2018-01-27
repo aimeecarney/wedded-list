@@ -1,6 +1,6 @@
 class ListsController < ApplicationController
   before_action :current_user
-  before_action :set_list, only: [:show, :edit, :update, :destroy, :add_contact, :local_contacts, :add_new_contact]
+  before_action :set_list, only: [:show, :edit, :update, :destroy, :add_contact, :local_contacts, :add_new_contact, :list_data]
 
   def new
     @list = List.new
@@ -22,6 +22,10 @@ class ListsController < ApplicationController
 
   def show
     # render json: @list
+  end
+
+  def list_data
+    render json: @list
   end
 
   def update
