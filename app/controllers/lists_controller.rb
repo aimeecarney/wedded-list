@@ -21,6 +21,7 @@ class ListsController < ApplicationController
   end
 
   def show
+    # render json: @list
   end
 
   def update

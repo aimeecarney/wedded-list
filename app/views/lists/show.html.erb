@@ -1,11 +1,10 @@
-<h1><%= @list.name %></h1>
-<%= @list.description %><br>
-<%= @list.date %><br>
-<%= @list.city %>, <%= @list.state %><br>
+<h1 class="listName"><%= @list.name %></h1>
+<p class="listDate"><%= @list.date %></p>
+<p class="listLocation"><%= @list.city %>, <%= @list.state %></p>
 <br>
 <strong>Guest List:</strong><br>
 <% @list.contacts.each do |contact| %>
-<li><%= link_to contact.name, contact_path(contact) %></li><br>
+<li><%= link_to contact.name, contact_path(contact), class: "contactName" %></li><br>
 <% end %>
 <%= link_to "View Local Contacts", "/lists/#{@list.id}/local_contact", class: "load_contacts" %><br>
 <div class="local_contacts_list"></div><br>
@@ -14,3 +13,6 @@
 <%= link_to "Edit List Description", edit_list_url %><br>
 <%= link_to "Add/Delete Contact to List", "/lists/#{@list.id}/add_contact" %><br>
 <%= link_to "Add New Contact to List", "/lists/#{@list.id}/add_new_contact" %><br>
+<br>
+<br>
+<a href="#" class="js-next" data-id="<%=@list.id%>">Next List...</a>
