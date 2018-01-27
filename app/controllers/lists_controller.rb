@@ -42,6 +42,7 @@ class ListsController < ApplicationController
 
   def local_contacts
     @contacts = @list.contacts.where(state: @list.state)
+    render :layout => false
   end
 
   def edit
