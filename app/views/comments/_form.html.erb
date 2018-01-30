@@ -1,5 +1,7 @@
+<div class="new_comment">
 <%= form_for(@comment) do |f| %>
 <%= f.text_area :content %><br>
 <%= f.hidden_field :contact_id %>
 <%= f.submit %>
 <% end %>
+</div>

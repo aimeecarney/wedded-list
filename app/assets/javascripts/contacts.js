@@ -7,7 +7,10 @@ $(document).ready(function(){
     }).done(function(data){
       $("div.events_list").html(data)
     })
-
   })
-}
-)
+
+  $('.new_comment').on('click', function() {
+    alert("clicked")
+    e.preventDefault()
+  })
+})
