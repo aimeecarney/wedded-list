@@ -5,16 +5,18 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(comment_params)
+    @contact = @comment.contact
       if @comment.save
-        flash[:notice] = "Comment successfully created"
-        redirect_to contacts_path(@contact)
+        redirect_to @contact
       else
         flash[:notice] = "Comment not saved"
+        redirect_to @contact
       end
   end
 
   def destroy
     @comment = Comment.find(params[:id])
+    @contact = @comment.contact
     @comment.destroy
     redirect_to @contact
   end
