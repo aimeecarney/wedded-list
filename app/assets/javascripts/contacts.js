@@ -9,8 +9,12 @@ $(document).ready(function(){
     })
   })
 
-  $('.new_comment').on('click', function() {
-    alert("clicked")
+  $('.new_comment').on('submit', function(e) {
+    $.ajax({
+      method: this.method,
+      url: this.action,
+      data: $(this).serialize()
+    })
     e.preventDefault()
   })
 })
