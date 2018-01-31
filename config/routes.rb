@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  resources :comments
   resources :list_contacts
   resources :lists
-  resources :contacts
+  resources :contacts do
+      resources :comments
+  end
 
 
   get '/lists/:id/add_contact', to: 'lists#add_contact'
