@@ -14,7 +14,7 @@
 <div class="comments">
   <% @comments.each do |comment| %>
     <p><%= comment.content %></p>
-    <p><%= link_to 'Delete', comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+    <!-- <p><%= link_to 'Delete', contact_path(comment), method: :delete, data: { confirm: 'Are you sure?' } %></p> -->
 </div>
 <% end %>
 <%= render partial: 'comments/form', locals: { comment: @comment } %>

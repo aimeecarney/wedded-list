@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
   def create
     @comment = @contact.comments.build(comment_params)
       if @comment.save
-        redirect_to @contact
+        render 'comments/show', :layout => false
       else
         flash[:notice] = "Comment not saved"
         redirect_to @contact
@@ -24,7 +24,7 @@ class CommentsController < ApplicationController
   private
 
   def set_contact
-    @contact = Contact.find(params[:post_id])
+    @contact = Contact.find(params[:contact_id])
   end
 
   def comment_params

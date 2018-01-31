@@ -10,10 +10,20 @@ $(document).ready(function(){
   })
 
   $('.new_comment').on('submit', function(e) {
+    data = {
+      'authenticity_token': $("input[name='authenticity_token']").val(),
+        'comment': {
+          'content': $("#comment").val()
+          }
+        }
+
     $.ajax({
-      method: this.method,
+      type: "POST",
       url: this.action,
-      data: $(this).serialize()
+      data: data,
+      success: function(response){
+        debugger
+      }
     })
     e.preventDefault()
   })
