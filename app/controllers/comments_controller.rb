@@ -1,11 +1,12 @@
 class CommentsController < ApplicationController
+  before_action :set_contact
+
   def new
     @comment = Comment.new
   end
 
   def create
-    @comment = Comment.new(comment_params)
-    @contact = @comment.contact
+    @comment = @contact.comments.build(comment_params)
       if @comment.save
         redirect_to @contact
       else
@@ -16,12 +17,15 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment = Comment.find(params[:id])
-    @contact = @comment.contact
     @comment.destroy
     redirect_to @contact
   end
 
   private
+
+  def set_contact
+    @contact = Contact.find(params[:post_id])
+  end
 
   def comment_params
     params.require(:comment).permit(:content, :contact_id)
