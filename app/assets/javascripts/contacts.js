@@ -6,6 +6,7 @@ $(document).ready(function(){
       url: this.href
     }).done(function(data){
       $("div.events_list").html(data)
+      debugger
     })
   })
 

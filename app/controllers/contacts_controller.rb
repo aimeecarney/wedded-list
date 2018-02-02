@@ -8,7 +8,6 @@ class ContactsController < ApplicationController
 
     def index
       @contacts = Contact.where(user_id: current_user.id)
-
     end
 
     def create

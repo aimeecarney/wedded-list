@@ -5,7 +5,7 @@
 <br>
 <strong>Guest List:</strong><br>
 <% @list.contacts.each do |contact| %>
-<li><%= link_to contact.name, contact_path(contact), class: "contactName" %></li><br>
+<li class="contactName"><%= link_to contact.name, contact_path(contact), class: "contactName" %></li><br>
 <% end %>
 <%= link_to "View Local Contacts", "/lists/#{@list.id}/local_contact", class: "load_contacts" %><br>
 <div class="local_contacts_list"></div><br>
