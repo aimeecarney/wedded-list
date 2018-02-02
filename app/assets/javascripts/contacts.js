@@ -9,7 +9,7 @@ $(document).ready(function(){
     })
   })
 
-  $('.new_comment').on('submit', function(e) {
+  $('.new_comment').on('click', function(e) {
     data = {
       'authenticity_token': $("input[name='authenticity_token']").val(),
         'comment': {
@@ -22,9 +22,9 @@ $(document).ready(function(){
       url: this.action,
       data: data,
       success: function(response){
-        $("#comment_content").val("");
         var $ol = $("div.comments")
         $ol.append(response);
+        $("#comment_content").val("");
       }
     })
     e.preventDefault()
