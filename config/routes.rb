@@ -11,7 +11,6 @@ Rails.application.routes.draw do
   get '/lists/:id/local_contact', to: 'lists#local_contacts'
   get '/contacts/:id/events', to: 'contacts#events'
   get '/lists/:id/list_data', to: 'lists#list_data'
-  get '/contacts/:id/comments', to: 'contacts#comments'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
     # root 'welcome#home'
     authenticated do

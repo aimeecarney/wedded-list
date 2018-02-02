@@ -12,9 +12,6 @@
 <br>
 <strong>Gifts Given/Comments</strong>
 <div class="comments">
-  <% @comments.each do |comment| %>
-    <p><%= comment.content %></p>
-    <!-- <p><%= link_to 'Delete', contact_path(comment), method: :delete, data: { confirm: 'Are you sure?' } %></p> -->
+  <%= render partial: 'comments/comments' %>
 </div>
-<% end %>
 <%= render partial: 'comments/form', locals: { comment: @comment } %>

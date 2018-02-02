@@ -18,11 +18,12 @@ $(document).ready(function(){
         }
 
     $.ajax({
-      type: "POST",
       url: this.action,
       data: data,
       success: function(response){
-        debugger
+         $("#comment_content").val("");
+         var $ol = $("div.comments ol")
+         $ol.append(response);
       }
     })
     e.preventDefault()

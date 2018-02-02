@@ -5,13 +5,18 @@ class CommentsController < ApplicationController
     @comment = Comment.new
   end
 
+  def index
+    @comments = @contact.comments
+    render 'index.html', :layout => false
+  end
+
   def create
     @comment = @contact.comments.build(comment_params)
       if @comment.save
         render 'comments/show', :layout => false
       else
         flash[:notice] = "Comment not saved"
-        redirect_to @contact
+        render "contacts/${@contact.id}/show"
       end
   end
 
