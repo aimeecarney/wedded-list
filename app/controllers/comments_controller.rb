@@ -16,7 +16,7 @@ class CommentsController < ApplicationController
         render 'comments/show', :layout => false
       else
         flash[:notice] = "Comment not saved"
-        render "contacts/${@contact.id}/show"
+        render "contacts/${@contact.id}"
       end
   end
 

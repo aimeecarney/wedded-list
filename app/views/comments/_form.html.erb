@@ -1,5 +1,5 @@
 <div class="new_comment">
-<%= form_for([@contact, @comment], :remote => true) do |f| %>
+<%= form_for([@contact, @comment]) do |f| %>
 <%= f.text_area :content %><br>
 <%= f.hidden_field :contact_id %>
 <%= f.submit %>

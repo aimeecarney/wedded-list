@@ -13,17 +13,18 @@ $(document).ready(function(){
     data = {
       'authenticity_token': $("input[name='authenticity_token']").val(),
         'comment': {
-          'content': $("#comment").val()
+          'content': $("#comment_content").val()
           }
         }
 
     $.ajax({
+      type: "POST",
       url: this.action,
       data: data,
       success: function(response){
-         $("#comment_content").val("");
-         var $ol = $("div.comments ol")
-         $ol.append(response);
+        $("#comment_content").val("");
+        var $ol = $("div.comments")
+        $ol.append(response);
       }
     })
     e.preventDefault()
