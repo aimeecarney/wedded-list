@@ -3,6 +3,7 @@ class List < ApplicationRecord
   has_many :list_contacts
   has_many :contacts, through: :list_contacts
   before_save :uppcase_field
+  accepts_nested_attributes_for :contacts
 
   validates_format_of :date, :with => /\d{2}\/\d{2}\/\d{4}/
   validates :state, length: { maximum: 2 }
