@@ -5,8 +5,10 @@ $(document).ready(function(){
       method: "GET",
       url: this.href
     }).done(function(data){
-      $("div.events_list").html(data)
-      debugger
+      var url = this.url
+      var splitUrl = url.split("/")
+      var id = splitUrl[4]
+      $("div.events_list-" + id).html(data)
     })
   })
 

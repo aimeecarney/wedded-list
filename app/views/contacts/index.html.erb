@@ -3,6 +3,6 @@
 <ui><strong><%=c.name%></strong><br>
     <%= link_to "View Contact", contact_url(c) %> | <%= link_to "Delete Contact", contact_url(c), :method => "delete"%> | <%= link_to "Load Events", "/contacts/#{c.id}/events", class: "load_events" %><br>
     <div class="contactEvents"></div>
-    <div class="events_list"></div><br></ui>
+    <div class="events_list-<%=c.id %>"></div><br></ui>
   <% end %>
 <%= link_to "Create New Contact", new_contact_url %>

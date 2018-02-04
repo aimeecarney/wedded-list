@@ -7,8 +7,10 @@
 </p>
 <strong><p>Email:</strong> <%= @contact.email %></p>
 <strong><p>Plus 1 Name (if applicable):</strong> <%= @contact.plus_one_name %></p>
-
+<strong>Events Invited To:</strong>
+<div class="contactEvents">
 <%= render partial: 'events' %>
+</div<
 <br>
 <strong>Gifts Given/Comments</strong>
 <div class="comments">
