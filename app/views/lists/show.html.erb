@@ -26,9 +26,10 @@ $(function () {
       $(".listDate").text(data["date"]);
       $(".listCity").text(data["city"]);
       $(".listState").text(data["state"]);
-      $.each(data.contacts, function(index, contact){
-        console.log(contact.name)
-          // $(".guestlist").text(contact.name)
+      $.each(data.contacts, function(index){
+        console.log(this.name)
+        // debugger
+          $(".guestlist").text(this.name)
         })
       // re-set the id to current on the link
       $(".js-next").attr("data-id", data["id"]);
