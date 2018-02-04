@@ -25,11 +25,21 @@ $(document).ready(function(){
       url: this.action,
       data: data,
       success: function(response){
-        var $ol = $("div.comments")
-        $ol.append(response);
+        var item = new Item(response);
+        var itemLi = item.renderLi()
+        $("div.comments").append(itemLi)
         $("#comment_content").val("");
       }
     })
     e.preventDefault()
   })
 })
+
+function Item(attributes){
+  this.description = attributes.name;
+  this.id = attributes.id;
+}
+
+item.prototype.renderLi = function(){
+
+}
