@@ -1,3 +1,27 @@
+function Comment(attributes){
+  this.comments = attributes;
+}
+
+Comment.prototype.renderComment = function(comment){
+  var today = new Date();
+  var dd = today.getDate();
+  var mm = today.getMonth()+1; //January is 0!
+  var yyyy = today.getFullYear();
+
+  if(dd<10) {
+      dd = '0'+dd
+  }
+
+  if(mm<10) {
+      mm = '0'+mm
+  }
+
+  today = mm + '/' + dd + '/' + yyyy;
+
+  return comment + " created on: " + today
+  }
+
+
 $(document).ready(function(){
   $('.load_events').on('click', function(e){
     e.preventDefault()
@@ -25,21 +49,14 @@ $(document).ready(function(){
       url: this.action,
       data: data,
       success: function(response){
-        var item = new Item(response);
-        var itemLi = item.renderLi()
-        $("div.comments").append(itemLi)
+        var comment = new Comment(response)
+        var commentRendered = comment.renderComment()
+        $("div.comments").append(commentRendered)
         $("#comment_content").val("");
       }
     })
     e.preventDefault()
   })
+
+
 })
-
-function Item(attributes){
-  this.description = attributes.name;
-  this.id = attributes.id;
-}
-
-item.prototype.renderLi = function(){
-
-}
