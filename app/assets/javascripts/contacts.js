@@ -1,27 +1,3 @@
-function Comment(attributes){
-  this.comments = attributes;
-}
-
-Comment.prototype.renderComment = function(comment){
-  var today = new Date();
-  var dd = today.getDate();
-  var mm = today.getMonth()+1; //January is 0!
-  var yyyy = today.getFullYear();
-
-  if(dd<10) {
-      dd = '0'+dd
-  }
-
-  if(mm<10) {
-      mm = '0'+mm
-  }
-
-  today = mm + '/' + dd + '/' + yyyy;
-
-  return comment + " created on: " + today
-  }
-
-
 $(document).ready(function(){
   $('.load_events').on('click', function(e){
     e.preventDefault()
@@ -58,5 +34,26 @@ $(document).ready(function(){
     e.preventDefault()
   })
 
+  function Comment(attributes){
+    this.comments = attributes;
+  }
 
+  Comment.prototype.renderComment = function(comment){
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; //January is 0!
+    var yyyy = today.getFullYear();
+
+    if(dd<10) {
+        dd = '0'+dd
+    }
+
+    if(mm<10) {
+        mm = '0'+mm
+    }
+
+    today = mm + '/' + dd + '/' + yyyy;
+
+    return "<p>" + comment + " created on: " + today + "</p>"
+    }
 })
