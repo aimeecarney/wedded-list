@@ -12,7 +12,7 @@ $(document).ready(function(){
     })
   })
 
-  $('.new_comment').on('click', function(e) {
+  $('.new_comment').on('submit', function(e) {
     data = {
       'authenticity_token': $("input[name='authenticity_token']").val(),
         'comment': {
@@ -39,6 +39,7 @@ $(document).ready(function(){
   }
 
   Comment.prototype.renderComment = function(comment){
+    debugger
     var today = new Date();
     var dd = today.getDate();
     var mm = today.getMonth()+1; //January is 0!
