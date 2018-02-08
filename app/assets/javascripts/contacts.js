@@ -35,11 +35,10 @@ $(document).ready(function(){
   })
 
   function Comment(attributes){
-    this.comments = attributes;
+    this.content = attributes;
   }
 
-  Comment.prototype.renderComment = function(comment){
-    debugger
+  Comment.prototype.renderComment = function(){
     var today = new Date();
     var dd = today.getDate();
     var mm = today.getMonth()+1; //January is 0!
@@ -55,6 +54,6 @@ $(document).ready(function(){
 
     today = mm + '/' + dd + '/' + yyyy;
 
-    return "<p>" + comment + " created on: " + today + "</p>"
+    return "<p>" + this.content + " created on: " + today + "</p>"
     }
 })
