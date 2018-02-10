@@ -20,7 +20,11 @@ $(function(){
         $(".guestlist").text("");
         $.each(data.contacts, function(index){
             $(".guestlist").append(this.name + "<BR>")
-          })
+          });
+        url = this.url
+        cleanUrl = url.substring(0, url.lastIndexOf("/") + 1)
+        editUrl = cleanUrl + "edit"
+        $("#editLink").attr("href", editUrl);
         // re-set the id to current on the link
         $(".js-next").attr("data-id", data["id"]);
       });

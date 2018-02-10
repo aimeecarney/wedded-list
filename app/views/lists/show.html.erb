@@ -11,7 +11,7 @@
 <div class="local_contacts_list"></div><br>
 <br>
 <br>
-<p class ="editLink"><%= link_to "Edit List Description", edit_list_url %></p>
+<%= link_to "Edit List Description", edit_list_url, id: "editLink" %><br>
 <p class ="contactLink"><%= link_to "Add/Delete Contact to List", "/lists/#{@list.id}/add_contact" %></p>
 <br>
 <br>
