@@ -12,8 +12,7 @@
 <br>
 <br>
 <p class ="editLink"><%= link_to "Edit List Description", edit_list_url %></p>
-<p class ="editLink"><%= link_to "Add/Delete Contact to List", "/lists/#{@list.id}/add_contact" %></p>
-<p class ="editLink"><%= link_to "Add New Contact to List", "/lists/#{@list.id}/add_new_contact" %></p>
+<p class ="contactLink"><%= link_to "Add/Delete Contact to List", "/lists/#{@list.id}/add_contact" %></p>
 <br>
 <br>
 <a href="#" class="js-next" data-id="<%=@list.id%>">Next List...</a>
