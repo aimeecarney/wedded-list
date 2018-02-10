@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :set_contact
+  before_action :set_contact, only: [:index, :create]
 
   def new
     @comment = Comment.new
@@ -20,6 +20,7 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+    @contact = Contact.find(params[:contact_id])
     @comment = Comment.find(params[:id])
     @comment.destroy
     redirect_to @contact
@@ -28,7 +29,7 @@ class CommentsController < ApplicationController
   private
 
   def set_contact
-    @contact = Contact.find(params[:contact_id])
+    @contact = Contact.find(params[:id])
   end
 
   def comment_params
