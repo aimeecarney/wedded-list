@@ -19,7 +19,7 @@ $(function(){
         $(".listState").text(data["state"]);
         $(".guestlist").text("");
         $.each(data.contacts, function(index){
-            $(".guestlist").append(this.name + "<BR>")
+            $(".guestlist").append(this.name+"<BR>")
           });
         url = this.url
         cleanUrl = url.substring(0, url.lastIndexOf("/") + 1)
