@@ -12,7 +12,7 @@ $(document).ready(function(){
     })
   })
 
-  $('.new_comment').on('submit', function(e) {
+  $('.submit_button').on('click', function(e) {
     data = {
       'authenticity_token': $("input[name='authenticity_token']").val(),
         'comment': {
