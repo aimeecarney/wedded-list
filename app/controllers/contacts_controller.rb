@@ -21,12 +21,11 @@ class ContactsController < ApplicationController
       end
     end
 
-
     def show
       @comments = @contact.comments.all
       @comment = @contact.comments.build
     end
-    
+
     def update
       @contact.update(contact_params)
       redirect_to contacts_path(@contact)

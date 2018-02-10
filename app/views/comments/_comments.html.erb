@@ -1,3 +1,5 @@
 <% @comments.each do |comment| %>
     <p><%= comment.content %></p>
+    <%= link_to 'Delete', contact_comment_url(@contact, comment), method: :delete,
+                         data: { confirm: 'Are you sure?' } %>
 <% end %>
