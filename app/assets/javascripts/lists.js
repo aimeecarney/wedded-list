@@ -24,7 +24,9 @@ $(function(){
         url = this.url
         cleanUrl = url.substring(0, url.lastIndexOf("/") + 1)
         editUrl = cleanUrl + "edit"
+        contactUrl = cleanUrl + "add_contact"
         $("#editLink").attr("href", editUrl);
+        $("#contactLink").attr("href", contactUrl);
         // re-set the id to current on the link
         $(".js-next").attr("data-id", data["id"]);
       });
