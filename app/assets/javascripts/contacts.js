@@ -12,7 +12,7 @@ $(document).ready(function(){
     })
   })
 
-  $('.submit_button').on('click', function(e) {
+  $('#submitButton').on('click', function(e) {
     data = {
       'authenticity_token': $("input[name='authenticity_token']").val(),
         'comment': {
@@ -38,7 +38,7 @@ $(document).ready(function(){
     this.content = attributes;
   }
 
-  Comment.prototype.renderComment = function(){
+  Comment.prototype.renderComment = function(comment){
     var today = new Date();
     var dd = today.getDate();
     var mm = today.getMonth()+1; //January is 0!
@@ -54,6 +54,7 @@ $(document).ready(function(){
 
     today = mm + '/' + dd + '/' + yyyy;
 
-    return "<p>" + this.content + " created on: " + today + "</p>"
+    var appendedComment = "<p>" + this.content + " created on: " + today + "</p>"
+    return appendedComment
     }
 })

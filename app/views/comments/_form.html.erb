@@ -2,6 +2,6 @@
 <%= form_for([@contact, @comment]) do |f| %>
 <%= f.text_area :content %><br>
 <%= f.hidden_field :contact_id %>
-<div class="submit_button"><%= f.submit %></div>
+<%= f.submit id: 'submitButton' %>
 <% end %>
 </div>

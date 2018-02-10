@@ -28,7 +28,7 @@ class CommentsController < ApplicationController
   private
 
   def set_contact
-    @contact = Contact.find(params[:contact_id])
+    @contact = Contact.find(params[:id])
   end
 
   def comment_params
