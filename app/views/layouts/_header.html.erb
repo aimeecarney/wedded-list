@@ -1,2 +1,26 @@
-Wedded List | <%=link_to "Lists", lists_url%> | <%= link_to "Contacts", contacts_url %> | <% if user_signed_in? %> <%= link_to('Logout', destroy_user_session_path, method: :delete) %> | <%= link_to('View Account', edit_user_registration_path) %><% else %>
-<%= link_to('Login', new_user_session_path)  %> <% end %> <br><br>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="#">Wedded List</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor01">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/lists">Lists <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/contacts">Contacts</a>
+      </li>
+      <% if user_signed_in? %>
+      <li class="nav-item">
+        <a class="nav-link" href="/users/edit">View Account</a>
+      </li>
+      <% else %>
+      <li class="nav-item">
+        <a class="nav-link" href="/users/sign_in">Login</a>
+      </li>
+      <% end%>
+    </ul>
+  </div>
+</nav>
