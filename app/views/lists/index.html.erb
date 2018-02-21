@@ -1,9 +1,10 @@
+<br>
 <h1>Welcome to your Wedded Lists!</h1>
-
-<h2>Your Wedding Guest Lists:</h2>
+<br>
+<h3>Your Wedding Guest Lists:</h3>
+<br>
 <% @lists.each do |l| %>
-<ui><strong><%=l.name%></strong><br>
-    <%=l.description%><br>
-    <%= link_to "View List", list_url(l) %> | <%= link_to "Delete List", list_url(l), :method => "delete" %><br><br></ui>
+<ui><p class="lead"><%=l.name%></p>
+    <%= link_to "View List", list_url(l) %> | <%= link_to "Delete List", list_url(l), :method => "delete" %></ui><br><br><br>
   <% end %>
 <%= link_to "Create New List", new_list_url %>
