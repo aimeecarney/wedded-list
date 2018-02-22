@@ -32,7 +32,11 @@ class ContactsController < ApplicationController
     end
 
     def events
-      render :layout => false
+      respond_to do |format|
+        format.json {
+          render json: @contact
+        }
+      end
     end
 
     def edit

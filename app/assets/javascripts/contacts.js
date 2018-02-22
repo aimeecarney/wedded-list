@@ -5,10 +5,19 @@ $(document).ready(function(){
       method: "GET",
       url: this.href
     }).done(function(data){
-      var url = this.url
-      var splitUrl = url.split("/")
-      var id = splitUrl[4]
-      $("div.events_list-" + id).html(data)
+      const id = this.url.split("/")[4]
+      const sortedList = data.lists.sort((list1, list2) => {
+        if (list1.name < list2.name) {
+          return -1;
+        } if (list1.name > list2.name) {
+          return 1;
+        }
+        return 0
+      })
+      sortedList.forEach(function(element){
+          const list = `<li> ${element.name} </li>`
+          $("div.events_list-" + id).append(list)
+      })
     })
   })
 
@@ -25,8 +34,8 @@ $(document).ready(function(){
       url: this.action,
       data: data,
       success: function(response){
-        var comment = new Comment(response)
-        var commentRendered = comment.renderComment()
+        const comment = new Comment(response)
+        const commentRendered = comment.renderComment()
         $("div.comments").append(commentRendered)
         $("#comment_content").val("");
       }
@@ -39,10 +48,10 @@ $(document).ready(function(){
   }
 
   Comment.prototype.renderComment = function(comment){
-    var today = new Date();
-    var dd = today.getDate();
-    var mm = today.getMonth()+1; //January is 0!
-    var yyyy = today.getFullYear();
+    const today = new Date();
+    const dd = today.getDate();
+    const mm = today.getMonth()+1; //January is 0!
+    const yyyy = today.getFullYear();
 
     if(dd<10) {
         dd = '0'+dd
@@ -54,7 +63,7 @@ $(document).ready(function(){
 
     today = mm + '/' + dd + '/' + yyyy;
 
-    var appendedComment = "<p>" + this.content + " created on: " + today + "</p>"
+    const appendedComment = "<p>" + this.content + " created on: " + today + "</p>"
     return appendedComment
     }
 })

@@ -11,8 +11,8 @@ $(function(){
   })
 
     $(".js-next").on("click", function() {
-      var nextId = parseInt($(".js-next").attr("data-id")) + 1;
-      $.getJSON("/lists/" + nextId + "/list_data", function(data) {
+      const nextId = parseInt($(".js-next").attr("data-id")) + 1;
+      $.getJSON(`lists/${nextId}/list_data`, function(data) {
         $(".listName").text(data["name"]);
         $(".listDate").text(data["date"]);
         $(".listCity").text(data["city"]);
